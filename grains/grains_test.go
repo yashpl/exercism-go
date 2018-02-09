@@ -14,12 +14,12 @@ func TestSquare(t *testing.T) {
 		}
 
 		// if we expect an error and there isn't one
-		if test.expectError && &actualErr == nil {
+		if test.expectError && actualErr == nil {
 			t.Fatalf("FAIL: %s\nSquare(%d) expected an error, but error is nil", test.description, test.input)
 		}
 		// if we don't expect an error and there is one
-		if !test.expectError && &actualErr != nil {
-			//var _ bool = actualErr
+		if !test.expectError && actualErr != nil {
+			var _ error = actualErr
 			t.Fatalf("FAIL: %s\nSquare(%d) expected no error, but error is: %s", test.description, test.input, actualErr)
 		}
 		t.Logf("PASS: %s", test.description)
