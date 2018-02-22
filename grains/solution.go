@@ -20,7 +20,7 @@ func Square(in int) (uint64, error) {
 
 		return out, err
 	}
-	//if input is 1 , return 1
+	//if input is 1 , return 1 ( Used HACK below )
 	if in < 2 {
 		out = 1
 		return out, nil
@@ -37,5 +37,6 @@ func Square(in int) (uint64, error) {
 }
 func Total() uint64 {
 	Square(64)
+	// HACK: one is added to return value to compensate condition in line 24 ( if in < 2 )
 	return total_grains + 1
 }
